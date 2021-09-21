@@ -5,9 +5,9 @@ THR=${1}
 
 for feat in morph synt
 do
-    python3 compare_ling.py --input1 ../../data/features/${LANG}/corpus1_${feat}.json --input2 ../../data/features/${LANG}/corpus2_${feat}.json --output results/${LANG}1_${feat}_${THR} --threshold ${THR} --separation yes
-    python3 compare_ling.py --input1 ../../data/features/${LANG}/corpus2_${feat}.json --input2 ../../data/features/${LANG}/corpus3_${feat}.json --output results/${LANG}2_${feat}_${THR} --threshold ${THR} --separation yes
-    python3 compare_ling.py --input1 ../../data/features/${LANG}/corpus3_${feat}.json --input2 ../../data/features/${LANG}/corpus1_${feat}.json --output results/${LANG}3_${feat}_${THR} --threshold ${THR} --separation yes
+    python3 compare_ling.py --input1 features/${LANG}/corpus1_${feat}.json --input2 features/${LANG}/corpus2_${feat}.json --output results/${LANG}1_${feat}_${THR} --threshold ${THR} --separation yes
+    python3 compare_ling.py --input1 features/${LANG}/corpus2_${feat}.json --input2 features/${LANG}/corpus3_${feat}.json --output results/${LANG}2_${feat}_${THR} --threshold ${THR} --separation yes
+    python3 compare_ling.py --input1 features/${LANG}/corpus3_${feat}.json --input2 features/${LANG}/corpus1_${feat}.json --output results/${LANG}3_${feat}_${THR} --threshold ${THR} --separation yes
 done
 
 for n in 1 2 3
