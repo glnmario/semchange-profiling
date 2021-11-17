@@ -9,5 +9,7 @@ This is the repository for the CoNLL-2021 paper "Grammatical Profiling for Seman
 
 Use `eval.py` to evaluate the resulting TSVs with regards to gold scores (in the `test_data_truth` subdirectory).
 
+The raw profiles (feature counts) could be found in `/features` folder.
+
 The repository will be populated with more instructions and results soon.
 
