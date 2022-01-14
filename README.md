@@ -4,7 +4,7 @@ This is the repository for the CoNLL-2021 paper ["Grammatical Profiling for Sema
 
 The `full_profiling_pipeline.sh` script can be used right out of the box.
 
-Run it as
+Run the script as
 
 `./full_profiling_pipeline.sh TARGETS CORPUS0 CORPUS1`
 
@@ -16,6 +16,10 @@ Any tagger and parser of your choice can be used (_UDPipe_ and _Stanza_ come to 
 The script will process your CONLL-U files and generate morphosyntax-based predictions of graded and binary semantic change for each target word.
 Find the aggregated change scores as predicted by our algorithm in the `output` directory.
 The script already uses the best hyperparameters from the paper.
+
+Do not forget to first install dependencies:
+
+`pip3 install -r requirements.txt`
 
 In case you are interested, the `output/tsv` directory contains separate predictions from morphological and syntax features.
 
