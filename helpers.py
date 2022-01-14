@@ -129,6 +129,8 @@ def compute_distance_from_common_features(p1, p2, threshold, distance_type):
 
 def cat_plot(values, labels):
     pos = np.arange(len(labels))
-    plt.bar(pos, values, tick_label=labels, color=['black', 'red', 'green', 'blue', 'cyan', "pink", "tomato", "gray", "brown", "darkviolet"])
+    plt.bar(pos, values, tick_label=labels,
+            color=['black', 'red', 'green', 'blue', 'cyan', "pink", "tomato",
+                   "gray", "brown", "darkviolet"])
     plt.legend(loc="best")
     plt.show()

@@ -65,33 +65,36 @@ def main():
     args = docopt("""Evaluate lexical semantic change detection results.
 
     Usage:
-        eval.py <modelAnsPath1> <modelAnsPath2> <trueAnsPath1> <trueAnsPath2>
+        eval.py <modelanspath1> <modelanspath2> <trueanspath1> <trueanspath2>
 
     Arguments:
-        <modelAnsPath1> = path to tab-separated answer file for Task 1 (lemma + "\t" + binary score)
-        <modelAnsPath2> = path to tab-separated answer file for Task 2 (lemma + "\t" + corr. coeff.)
-        <trueAnsPath1> = path to tab-separated gold answer file for Task 1 (lemma + "\t" + binary score)
-        <trueAnsPath2> = path to tab-separated gold answer file for Task 2 (lemma + "\t" + corr. coeff.)
-
+        <modelanspath1> = path to tab-separated answer file for Task 1 
+        (lemma + "\t" + binary score)
+        <modelanspath2> = path to tab-separated answer file for Task 2 
+        (lemma + "\t" + corr. coeff.)
+        <trueanspath1> = path to tab-separated gold answer file for Task 1 
+        (lemma + "\t" + binary score)
+        <trueanspath2> = path to tab-separated gold answer file for Task 2 
+        (lemma + "\t" + corr. coeff.)
     """)
 
-    modelAnsPath1 = args['<modelAnsPath1>']
-    modelAnsPath2 = args['<modelAnsPath2>']
-    trueAnsPath1 = args['<trueAnsPath1>']
-    trueAnsPath2 = args['<trueAnsPath2>']
+    modelanspath1 = args['<modelanspath1>']
+    modelanspath2 = args['<modelanspath2>']
+    trueanspath1 = args['<trueanspath1>']
+    trueanspath2 = args['<trueanspath2>']
 
-    if os.path.isfile(modelAnsPath1):
-        acc = eval_task1(modelAnsPath1, trueAnsPath1)
+    if os.path.isfile(modelanspath1):
+        acc = eval_task1(modelanspath1, trueanspath1)
         print('Task 1 Accuracy: {:.3f}'.format(acc))
     else:
-        print('Task 1 predictions not found: %s' %modelAnsPath1)
+        print('Task 1 predictions not found: %s' % modelanspath1)
         pass
 
-    if os.path.isfile(modelAnsPath2):
-        r, p = eval_task2(modelAnsPath2, trueAnsPath2)
+    if os.path.isfile(modelanspath2):
+        r, p = eval_task2(modelanspath2, trueanspath2)
         print('Task 2 r: {:.3f}  p: {:.3f}'.format(r, p))
     else:
-        print('Task 2 predictions not found: %s' %modelAnsPath2)
+        print('Task 2 predictions not found: %s' % modelanspath2)
 
 
 if __name__ == '__main__':

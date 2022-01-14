@@ -15,11 +15,10 @@ if __name__ == "__main__":
     arg = parser.add_argument
     arg("--input1", "-i1", help="Path to a tsv file 1", required=True)
     arg("--input2", "-i2", help="Path to a tsv file 2", required=True)
-    arg("--product", "-p", help="If 'True' product is used instead of mean", required=False, type=bool, default=False, const=True, nargs="?")
+    arg("--average", "-a", help="If 'True', average score is used instead of max",
+        required=False, type=bool, default=False, const=True, nargs="?")
     args = parser.parse_args()
 
-    #logger.info("MERGE ARGS: %s" %args)
-    
     words1 = {}
     words2 = {}
 
@@ -34,10 +33,10 @@ if __name__ == "__main__":
     assert words1.keys() == words2.keys()
 
     for word in words1:
-        if args.product:
-            average = words1[word]*words2[word]
+        if args.average:
+            final = np.mean([words1[word], words2[word]])
         else:
-            average = np.mean([words1[word], words2[word]])
+            final = np.max([words1[word], words2[word]])
         if "binary" in args.input1:
-            average = int(average)
-        print(f"{word}\t{average}")
+            final = int(final)
+        print(f"{word}\t{final}")

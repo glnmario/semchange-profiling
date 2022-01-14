@@ -91,13 +91,16 @@ if __name__ == "__main__":
     properties_1 = json.load(open(args.input1, "r"))
     properties_2 = json.load(open(args.input2, "r"))
 
+    added_features1 = None
+    added_features2 = None
+
     if args.added_features1:
         added_features1 = json.load(open(args.added_features1))
         added_features2 = json.load(open(args.added_features2))
 
     feature_to_group = {}
-    if args.syntax_filtering:
-        groups = json.load(open("../../data/features/synt_groups.json", "r"))
+    if args.syntax_filtering != "none":
+        groups = json.load(open("features/synt_groups.json", "r"))
         for k, v in groups.items():
             for f in v:
                 feature_to_group[f] = k
